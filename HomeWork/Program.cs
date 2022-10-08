@@ -11,7 +11,7 @@ int rows = int.Parse(Console.ReadLine()!);
 Console.WriteLine("Количество столбцов (n): ");
 int columns = int.Parse(Console.ReadLine()!);
 
-int[,] array = GetArray(rows, columns, -99, 100);
+int[,] array = GetArray(rows, columns, -99, 99);
 PrintArray(array);
 */
 
@@ -24,6 +24,7 @@ PrintArray(array);
 // i = 4, j = 2 -> такого числа в массиве нет
 // i = 1, j = 2 -> 2
 
+/*
 int rows = 3;
 int columns = 4;
 
@@ -45,9 +46,79 @@ if ((i >= 0) && (i <= 2))
 		else Console.WriteLine($"i = {i}, j = {j} -> такого числа в массиве нет");
 	}
 else Console.WriteLine($"i = {i}, j = {j} -> такого числа в массиве нет");
-		
+*/
 
 
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3
+
+int rows = 3;
+int columns = 4;
+
+int[,] array = GetArray(rows, columns, 1, 9);
+PrintArray(array);
+
+double sum0 = 0;
+    	for (int i = 0; i < array.GetLength(0); i++)
+		{
+            for (int j = 0; j < array.GetLength(1); j++)
+			{
+				if (j == 0)
+					{
+						sum0 = array[i, j] + sum0;
+					}
+			
+			}
+		}
+		sum0 = sum0 / rows;
+
+double sum1 = 0;
+    	for (int i = 0; i < array.GetLength(0); i++)
+		{
+            for (int j = 0; j < array.GetLength(1); j++)
+			{
+				if (j == 1)
+					{
+						sum1 = array[i, j] + sum1;
+					}
+			
+			}
+		}
+		sum1 = sum1 / rows;
+
+double sum2 = 0;
+    	for (int i = 0; i < array.GetLength(0); i++)
+		{
+            for (int j = 0; j < array.GetLength(1); j++)
+			{
+				if (j == 2)
+					{
+						sum2 = array[i, j] + sum2;
+					}
+			
+			}
+		}
+		sum2 = sum2 / rows;
+
+double sum3 = 0;
+    	for (int i = 0; i < array.GetLength(0); i++)
+		{
+            for (int j = 0; j < array.GetLength(1); j++)
+			{
+				if (j == 3)
+					{
+						sum3 = array[i, j] + sum3;
+					}
+			
+			}
+		}
+		sum3 = sum3 / rows;
+
+Console.WriteLine($"Среднее арифметическое каждого столбца: {sum0}, {sum1}, {sum2}, {sum3}, ");
 
 int[,] GetArray(int m, int n, int minValue, int maxValue)
 {
